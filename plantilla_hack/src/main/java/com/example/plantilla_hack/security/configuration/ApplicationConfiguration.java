@@ -1,6 +1,6 @@
-package com.example.plantilla_hack.configuration;
+package com.example.plantilla_hack.security.configuration;
 
-import com.example.plantilla_hack.persistance.UserRepository;
+import com.example.plantilla_hack.adapter.out.persistance.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

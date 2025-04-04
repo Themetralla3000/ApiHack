@@ -1,4 +1,4 @@
-package com.example.plantilla_hack.configuration;
+package com.example.plantilla_hack.security.configuration;
 
 
 import com.example.plantilla_hack.security.JwtService;

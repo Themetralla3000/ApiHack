@@ -1,4 +1,4 @@
-package com.example.plantilla_hack.persistance;
+package com.example.plantilla_hack.adapter.out.persistance;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Table(name = "users")
 @Entity
-public class User implements UserDetails {
+public class UserJPA implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -45,6 +45,9 @@ public class User implements UserDetails {
     @Getter
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    private List<ConsumJPA> consums;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,4 +1,4 @@
-package com.example.plantilla_hack.domain.dto;
+package com.example.plantilla_hack.security.dto;
 
 public class RegisterUserDTO {
     private String email;

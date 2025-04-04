@@ -1,10 +1,10 @@
 package com.example.plantilla_hack.security;
 
 
-import com.example.plantilla_hack.domain.dto.LoginUserDTO;
-import com.example.plantilla_hack.domain.dto.RegisterUserDTO;
-import com.example.plantilla_hack.persistance.User;
-import com.example.plantilla_hack.persistance.UserRepository;
+import com.example.plantilla_hack.security.dto.LoginUserDTO;
+import com.example.plantilla_hack.security.dto.RegisterUserDTO;
+import com.example.plantilla_hack.adapter.out.persistance.UserJPA;
+import com.example.plantilla_hack.adapter.out.persistance.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,17 +28,17 @@ public class AuthenticationService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User signup(RegisterUserDTO input) {
-        User user = new User();
-        user.setFullName(input.getFullName());
-        user.setEmail(input.getEmail());
-        user.setPassword(passwordEncoder.encode(input.getPassword()));
+    public UserJPA signup(RegisterUserDTO input) {
+        UserJPA userJPA = new UserJPA();
+        userJPA.setFullName(input.getFullName());
+        userJPA.setEmail(input.getEmail());
+        userJPA.setPassword(passwordEncoder.encode(input.getPassword()));
 
 
-        return userRepository.save(user);
+        return userRepository.save(userJPA);
     }
 
-    public User authenticate(LoginUserDTO input) {
+    public UserJPA authenticate(LoginUserDTO input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         input.getEmail(),
