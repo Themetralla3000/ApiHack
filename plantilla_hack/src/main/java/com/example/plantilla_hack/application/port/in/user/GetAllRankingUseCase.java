@@ -4,10 +4,6 @@ import com.example.plantilla_hack.model.User;
 
 import java.util.List;
 
-public interface GetRankingSpecificPoblacioUseCase {
-
-
-    List<User> getRankingSpecificPoblacio(String poblacio);
-
-
+public interface GetAllRankingUseCase {
+    List<User> getAllRanking();
 }

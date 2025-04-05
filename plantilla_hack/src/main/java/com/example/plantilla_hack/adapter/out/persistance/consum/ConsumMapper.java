@@ -13,15 +13,22 @@ public class ConsumMapper {
         consumJPAEntity.setCisterna(consum.getCisterna());
         consumJPAEntity.setLavaplatos(consum.getLavaplatos());
         consumJPAEntity.setTotal(consum.getTotal());
+        consumJPAEntity.setEmail(consum.getEmail());
 
-        // Aquí deberías establecer la relación con el usuario, si es necesario
-         consumJPAEntity.setUserJPAEntity(consum.getUserId());
-
+        return consumJPAEntity;
 
     }
 
     public static Consum toModel(ConsumJPAEntity consumJPAEntity) {
-        // Implementación de mapeo de entidad a modelo
-        return new Consum(/* parámetros */);
+
+        return new Consum(
+                consumJPAEntity.getDate(),
+                consumJPAEntity.getDucha(),
+                consumJPAEntity.getGrifo(),
+                consumJPAEntity.getLavadora(),
+                consumJPAEntity.getCisterna(),
+                consumJPAEntity.getLavaplatos(),
+                consumJPAEntity.getEmail()
+        );
     }
 }

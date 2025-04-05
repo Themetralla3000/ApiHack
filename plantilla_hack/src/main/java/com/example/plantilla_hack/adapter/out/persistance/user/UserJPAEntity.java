@@ -58,8 +58,9 @@ public class UserJPAEntity {
     @Column(name = "poblacio")
     private String poblacio;
 
-    @OneToMany(mappedBy = "userJPAEntity", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<ConsumJPAEntity> consums;
+
 
 
 

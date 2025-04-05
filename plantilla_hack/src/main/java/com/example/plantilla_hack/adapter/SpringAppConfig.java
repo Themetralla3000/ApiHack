@@ -62,13 +62,19 @@ public class SpringAppConfig {
         return new UserRachaService(userRepository);
     }
 
+
+
     @Bean
-    GetRankingFamilias getRankingFamilias() {
+    GetRankingSpecificPoblacioUseCase getRankingSpecificPoblacioUseCase() {
         return new UserRankingService(userRepository);
     }
 
     @Bean
-    GetRankingSpecificPoblacioUseCase getRankingSpecificPoblacioUseCase() {
+    GetAllRankingUseCase getAllRanking() {
+        return new UserRankingService(userRepository);
+    }
+    @Bean
+    NewUserUseCase newUserUseCase() {
         return new UserRankingService(userRepository);
     }
 

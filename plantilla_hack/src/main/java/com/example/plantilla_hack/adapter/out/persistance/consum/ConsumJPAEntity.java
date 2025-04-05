@@ -13,6 +13,8 @@ import java.util.Date;
 public class ConsumJPAEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
+    @Setter
     private long idConsum;
 
     @Column(name="ConsumDate")
@@ -40,14 +42,16 @@ public class ConsumJPAEntity {
 
     @Getter
     @Setter
+    private String email;
+
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private UserJPAEntity userJPAEntity;
+    @JoinColumn(name = "user_id")
+    private UserJPAEntity user;
 
     public ConsumJPAEntity() {
     }
 
-    public ConsumJPAEntity(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos, int total, UserJPAEntity userJPAEntity) {
+    public ConsumJPAEntity(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos, int total, String email) {
         this.date = date;
         this.ducha = ducha;
         this.grifo = grifo;
@@ -55,6 +59,6 @@ public class ConsumJPAEntity {
         this.cisterna = cisterna;
         this.lavaplatos = lavaplatos;
         this.total = total;
-        this.userJPAEntity = userJPAEntity;
+        this.email = email;
     }
 }

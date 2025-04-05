@@ -4,6 +4,8 @@ import com.example.plantilla_hack.application.port.out.persistance.ConsumReposit
 import com.example.plantilla_hack.model.Consum;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,38 +21,71 @@ public class JPAConsumRepository implements ConsumRepository {
 
     @Override
     public List<Consum> getAllDays(String email) {
-        return consumJpaRepository.findByUserEmail(email).stream()
-                .map(ConsumMapper::toModel)
+        List<ConsumJPAEntity> consumJPAEntities = consumJpaRepository.findByUserEmail(email);
+        return consumJPAEntities.stream()
+                .map(consumJPAEntity -> new Consum(
+                        consumJPAEntity.getDate(),
+                        consumJPAEntity.getDucha(),
+                        consumJPAEntity.getGrifo(),
+                        consumJPAEntity.getLavadora(),
+                        consumJPAEntity.getCisterna(),
+                        consumJPAEntity.getLavaplatos(),
+                        consumJPAEntity.getTotal(),
+                        email))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Consum getConsumSpecificDay(Date date, String email) {
-        return consumJpaRepository.findByDateAndUserEmail(date, email)
-                .map(ConsumMapper::toModel)
-                .orElse(null);
+        return ConsumMapper.toModel(consumJpaRepository.findByUserEmailAndDate(email, date));
+
     }
 
     @Override
     public List<Consum> getLastMonth(String email) {
-        Date oneMonthAgo = // calcular la fecha de hace un mes
-        return consumJpaRepository.findByUserEmailAndDateAfter(email, oneMonthAgo).stream()
-                .map(ConsumMapper::toModel)
-                .collect(Collectors.toList());
+
+        List<Consum> consumList = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+
+        for (int i = 1; i < 31; i++) {
+            Consum consum = getConsumSpecificDay(currentDate, email);
+            if (consum != null) {
+                consumList.add(consum);
+            }
+            calendar.add(Calendar.DAY_OF_MONTH, -1);
+            currentDate = calendar.getTime();
+        }
+
+        return consumList;
+
     }
 
     @Override
     public List<Consum> getLastWeek(String email) {
-        Date oneWeekAgo = // calcular la fecha de hace una semana
-        return consumJpaRepository.findByUserEmailAndDateAfter(email, oneWeekAgo).stream()
-                .map(ConsumMapper::toModel)
-                .collect(Collectors.toList());
+
+
+        List<Consum> consumList = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+
+        for (int i = 1; i <= 7; i++) {
+            Consum consum = getConsumSpecificDay(currentDate, email);
+            if (consum != null) {
+                consumList.add(consum);
+            }
+            calendar.add(Calendar.DAY_OF_MONTH, -1);
+            currentDate = calendar.getTime();
+        }
+
+        return consumList;
+
     }
 
     @Override
     public Consum getLastDay(String email) {
-        return consumJpaRepository.findTopByUserEmailOrderByDateDesc(email)
-                .map(ConsumMapper::toModel)
-                .orElse(null);
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+        return getConsumSpecificDay(currentDate, email);
     }
 }

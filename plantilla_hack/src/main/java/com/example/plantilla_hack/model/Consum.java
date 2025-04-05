@@ -31,9 +31,9 @@ public class Consum {
     private int total;
     @Setter
     @Getter
-    private int userId;
+    private String email;
 
-    public Consum(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos,int userId) {
+    public Consum(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos,String email) {
         this.date = date;
         this.ducha = ducha;
         this.grifo = grifo;
@@ -41,7 +41,17 @@ public class Consum {
         this.cisterna = cisterna;
         this.lavaplatos = lavaplatos;
         this.total = calculateTotal();
-        this.userId=userId;
+        this.email=email;
+    }
+    public Consum(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos, int total, String email) {
+        this.date = date;
+        this.ducha = ducha;
+        this.grifo = grifo;
+        this.lavadora = lavadora;
+        this.cisterna = cisterna;
+        this.lavaplatos = lavaplatos;
+        this.total = total;
+        this.email=email;
     }
 
 
