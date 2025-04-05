@@ -30,6 +30,7 @@ public class UserJPA implements UserDetails {
     @Column(unique = true, length = 100, nullable = false)
     private String email;
 
+    @Setter
     @Getter
     @Column(nullable = false)
     private String password;
@@ -79,40 +80,6 @@ public class UserJPA implements UserDetails {
         return true;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 // Getters and setters
 }
