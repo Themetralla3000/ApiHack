@@ -1,6 +1,6 @@
 package com.example.plantilla_hack.adapter.out.persistance.user;
 
-import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPA;
+import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPAEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -59,8 +58,8 @@ public class UserJPAEntity {
     @Column(name = "poblacio")
     private String poblacio;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
-    private List<ConsumJPA> consums;
+    @OneToMany(mappedBy = "userJPAEntity", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    private List<ConsumJPAEntity> consums;
 
 
 

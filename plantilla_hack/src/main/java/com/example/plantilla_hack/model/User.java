@@ -1,6 +1,6 @@
 package com.example.plantilla_hack.model;
 
-import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPA;
+import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPAEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +27,7 @@ public class User {
     @Setter
     private int racha=0;
 
-    private List<ConsumJPA> consums;
+    private List<ConsumJPAEntity> consums;
 
     public User() {
     }

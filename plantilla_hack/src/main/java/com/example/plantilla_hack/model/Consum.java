@@ -1,16 +1,36 @@
 package com.example.plantilla_hack.model;
 
+import com.example.plantilla_hack.adapter.out.persistance.user.UserJPAEntity;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 public class Consum {
 
+    @Setter
+    @Getter
     private Date date;
+    @Setter
+    @Getter
     private int ducha;
+    @Setter
+    @Getter
     private int grifo;
+    @Setter
+    @Getter
     private int lavadora;
+    @Setter
+    @Getter
     private int cisterna;
+    @Setter
+    @Getter
     private int lavaplatos;
+    @Setter
+    @Getter
     private int total;
+    @Setter
+    @Getter
     private int userId;
 
     public Consum(Date date, int ducha, int grifo, int lavadora, int cisterna, int lavaplatos,int userId) {
@@ -24,63 +44,10 @@ public class Consum {
         this.userId=userId;
     }
 
-    public int getDucha() {
-        return ducha;
-    }
-
-    public void setDucha(int ducha) {
-        this.ducha = ducha;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getGrifo() {
-        return grifo;
-    }
-
-    public void setGrifo(int grifo) {
-        this.grifo = grifo;
-    }
-
-    public int getCisterna() {
-        return cisterna;
-    }
-
-    public void setCisterna(int cisterna) {
-        this.cisterna = cisterna;
-    }
-
-    public int getLavadora() {
-        return lavadora;
-    }
-
-    public void setLavadora(int lavadora) {
-        this.lavadora = lavadora;
-    }
-
-    public int getLavaplatos() {
-        return lavaplatos;
-    }
-
-    public void setLavaplatos(int lavaplatos) {
-        this.lavaplatos = lavaplatos;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
 
     private int calculateTotal() {
         return ducha + grifo + lavadora + cisterna + lavaplatos;
     }
+
+
 }
