@@ -17,27 +17,27 @@ public class ConsumeDaysService implements GetAllDaysUseCase, GetConsumSpecificD
     }
 
     @Override
-    public List<Consum> getAllDays() {
-        return consumRepository.getAllDays();
+    public List<Consum> getAllDays(String email) {
+        return consumRepository.getAllDays(email);
     }
 
     @Override
-    public Consum getConsumSpecificDay(Date date) {
-        return consumRepository.getConsumSpecificDay(date);
+    public Consum getConsumSpecificDay(Date date,String email) {
+        return consumRepository.getConsumSpecificDay(date,email);
     }
 
     @Override
-    public List<Consum> getLastWeek() {
-        return consumRepository.getLastWeek();
+    public List<Consum> getLastWeek(String email) {
+        return consumRepository.getLastWeek(email);
     }
 
     @Override
-    public List<Consum> getLastMonth() {
-        return consumRepository.getLastMonth();
+    public List<Consum> getLastMonth(String email) {
+        return consumRepository.getLastMonth(email);
     }
 
     @Override
-    public Consum getYesterday() {
-        return consumRepository.getLastDay();
+    public Consum getYesterday(String email) {
+        return consumRepository.getLastDay(email);
     }
 }

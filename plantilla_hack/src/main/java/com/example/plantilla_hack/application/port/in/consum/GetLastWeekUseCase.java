@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface GetLastWeekUseCase {
 
-    List<Consum> getLastWeek(); // List<Consum>
+    List<Consum> getLastWeek(String email);
 
 }

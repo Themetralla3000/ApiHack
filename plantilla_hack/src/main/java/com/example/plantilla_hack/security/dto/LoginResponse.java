@@ -1,28 +1,19 @@
 package com.example.plantilla_hack.security.dto;
 
 public class LoginResponse {
-    private String token;
 
-    private long expiresIn;
 
-    public String getToken() {
-        return token;
+    String response;
+
+    public LoginResponse(String response) {
+        this.response = response;
     }
 
-    // Getters and setters...
-
-
-    public long getExpiresIn() {
-        return expiresIn;
+    public String getResponse() {
+        return response;
     }
 
-    public LoginResponse setToken(String token) {
-        this.token = token;
-        return this;
-    }
-
-    public LoginResponse setExpiresIn(long expiresIn) {
-        this.expiresIn = expiresIn;
-        return this;
+    public void setResponse(String response) {
+        this.response = response;
     }
 }

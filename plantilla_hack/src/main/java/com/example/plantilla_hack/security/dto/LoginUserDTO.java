@@ -11,5 +11,4 @@ public class LoginUserDTO {
     public String getPassword() {
         return password;
     }
-    // getters and setters here...
 }

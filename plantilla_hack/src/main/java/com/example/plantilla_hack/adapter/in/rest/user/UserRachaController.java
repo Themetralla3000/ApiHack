@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/user/racha")
@@ -29,20 +30,20 @@ public class UserRachaController {
     // Implement the endpoints for the use cases here
     // For example:
      @GetMapping("/get")
-     public ResponseEntity<Integer> getRacha() {
-         int racha = getRachaUseCase.getRacha();
+     public ResponseEntity<Integer> getRacha(@RequestParam String email) {
+         int racha = getRachaUseCase.getRacha(email);
          return ResponseEntity.ok(racha);
      }
 
      @PostMapping("/increase")
-     public ResponseEntity<Void> increaseRacha() {
-         aumentarRachaUseCase.aumentarRacha();
+     public ResponseEntity<Void> increaseRacha(@RequestParam String email) {
+         aumentarRachaUseCase.aumentarRacha(email);
          return ResponseEntity.ok().build();
      }
 
      @PostMapping("/reset")
-     public ResponseEntity<Void> resetRacha() {
-         reiniciarRachaUseCase.reiniciarRacha();
+     public ResponseEntity<Void> resetRacha(@RequestParam String email) {
+         reiniciarRachaUseCase.reiniciarRacha(email);
          return ResponseEntity.ok().build();
          
      }

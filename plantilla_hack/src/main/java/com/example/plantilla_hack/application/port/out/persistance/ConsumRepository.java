@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ConsumRepository {
 
-    List<Consum> getAllDays();
-    Consum getConsumSpecificDay(Date date);
-    List<Consum> getLastMonth();
-    List<Consum> getLastWeek();
-    Consum getLastDay();
+    List<Consum> getAllDays(String email);
+    Consum getConsumSpecificDay(Date date,String email);
+    List<Consum> getLastMonth(String email);
+    List<Consum> getLastWeek(String email);
+    Consum getLastDay(String email);
 }

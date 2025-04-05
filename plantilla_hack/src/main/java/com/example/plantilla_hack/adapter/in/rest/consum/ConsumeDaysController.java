@@ -5,6 +5,7 @@ import com.example.plantilla_hack.model.Consum;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,37 +34,33 @@ public class ConsumeDaysController {
         this.getYesterdayUseCase = getYesterdayUseCase;
     }
 
-
-    // Implement the endpoints for the use cases here
-// Implement the endpoints for the use cases here
-
     @GetMapping("/all")
-    public ResponseEntity<List<Consum>> getAllDays() {
-        List<Consum> consumList = getAllDaysUseCase.getAllDays();
+    public ResponseEntity<List<Consum>> getAllDays(@RequestParam String email) {
+        List<Consum> consumList = getAllDaysUseCase.getAllDays(email);
         return ResponseEntity.ok(consumList);
     }
 
     @GetMapping("/specific")
-    public ResponseEntity<Consum> getConsumSpecificDay(@RequestParam Date date) {
-        Consum consum = getConsumSpecificDayUseCase.getConsumSpecificDay(date);
+    public ResponseEntity<Consum> getConsumSpecificDay(@RequestParam Date date, @RequestParam String email) {
+        Consum consum = getConsumSpecificDayUseCase.getConsumSpecificDay(date, email);
         return ResponseEntity.ok(consum);
     }
 
     @GetMapping("/last-month")
-    public ResponseEntity<List<Consum>> getLastMonth() {
-        List<Consum> consumList = getLastMonthUseCase.getLastMonth();
+    public ResponseEntity<List<Consum>> getLastMonth(@RequestParam String email) {
+        List<Consum> consumList = getLastMonthUseCase.getLastMonth(email);
         return ResponseEntity.ok(consumList);
     }
 
     @GetMapping("/last-week")
-    public ResponseEntity<List<Consum>> getLastWeek() {
-        List<Consum> consumList = getLastWeekUseCase.getLastWeek();
+    public ResponseEntity<List<Consum>> getLastWeek(@RequestParam String email) {
+        List<Consum> consumList = getLastWeekUseCase.getLastWeek(email);
         return ResponseEntity.ok(consumList);
     }
 
     @GetMapping("/yesterday")
-    public ResponseEntity<Consum> getYesterday() {
-        Consum consumList = getYesterdayUseCase.getYesterday();
+    public ResponseEntity<Consum> getYesterday(@RequestParam String email) {
+        Consum consumList = getYesterdayUseCase.getYesterday(email);
         return ResponseEntity.ok(consumList);
     }
 }

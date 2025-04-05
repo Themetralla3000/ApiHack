@@ -6,5 +6,5 @@ import java.util.Date;
 
 public interface GetConsumSpecificDayUseCase {
 
-    Consum getConsumSpecificDay(Date date); // Date
+    Consum getConsumSpecificDay(Date date,String email);
 }

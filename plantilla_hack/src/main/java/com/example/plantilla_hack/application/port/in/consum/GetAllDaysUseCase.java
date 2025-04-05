@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GetAllDaysUseCase {
 
-    List<Consum> getAllDays();
+    List<Consum> getAllDays(String email);
 }

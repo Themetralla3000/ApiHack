@@ -1,4 +1,4 @@
-package com.example.plantilla_hack.adapter.out.persistance;
+package com.example.plantilla_hack.adapter.out.persistance.consum;
 
 import com.example.plantilla_hack.model.Consum;
 import org.springframework.stereotype.Repository;

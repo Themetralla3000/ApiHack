@@ -14,17 +14,17 @@ private final UserRepository userRepository;
     }
 
     @Override
-    public void aumentarRacha() {
-        userRepository.aumentarRacha();
+    public void aumentarRacha(String email) {
+        userRepository.aumentarRacha(email);
     }
 
     @Override
-    public void reiniciarRacha() {
-        userRepository.reiniciarRacha();
+    public void reiniciarRacha(String email) {
+        userRepository.reiniciarRacha(email);
     }
 
     @Override
-    public int getRacha() {
-        return userRepository.getRacha();
+    public int getRacha(String email) {
+        return userRepository.getRacha(email);
     }
 }

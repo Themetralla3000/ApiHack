@@ -4,5 +4,5 @@ import com.example.plantilla_hack.model.Consum;
 
 public interface GetYesterdayUseCase {
 
-    Consum getYesterday(); // Date
+    Consum getYesterday(String email);
 }

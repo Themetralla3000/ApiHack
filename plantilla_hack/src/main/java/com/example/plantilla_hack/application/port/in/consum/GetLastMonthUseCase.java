@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GetLastMonthUseCase {
 
-    List<Consum> getLastMonth(); // Date
+    List<Consum> getLastMonth(String email);
 }

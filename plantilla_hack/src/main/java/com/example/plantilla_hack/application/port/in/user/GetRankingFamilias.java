@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface GetRankingFamilias {
 
-    List<User> getRankingFamilias();
+    List<User> getRankingFamilias(String email);
 
 }

@@ -1,5 +1,6 @@
-package com.example.plantilla_hack.adapter.out.persistance;
+package com.example.plantilla_hack.adapter.out.persistance.user;
 
+import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPA;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,11 +15,13 @@ import java.util.List;
 
 @Table(name = "users")
 @Entity
-public class UserJPA implements UserDetails {
+public class UserJPAEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Integer id;
+    @Getter
+    @Setter
+    private long id;
 
     @Setter
     @Getter
@@ -46,6 +49,16 @@ public class UserJPA implements UserDetails {
     @Getter
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @Setter
+    @Getter
+    @Column(name = "racha")
+    private int racha;
+
+    @Setter
+    @Getter
+    @Column(name = "poblacio")
+    private String poblacio;
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<ConsumJPA> consums;

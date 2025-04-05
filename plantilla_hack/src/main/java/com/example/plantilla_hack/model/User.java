@@ -1,19 +1,36 @@
 package com.example.plantilla_hack.model;
 
-import com.example.plantilla_hack.adapter.out.persistance.ConsumJPA;
+import com.example.plantilla_hack.adapter.out.persistance.consum.ConsumJPA;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 public class User {
 
+    @Getter
+    @Setter
     private String email;
+    @Getter
+    @Setter
     private String password;
+    @Getter
+    @Setter
     private String fullName;
+    @Getter
+    @Setter
     private String poblacio;
-
+    @Getter
+    @Setter
+    private long id;
+    @Getter
+    @Setter
     private int racha=0;
 
     private List<ConsumJPA> consums;
+
+    public User() {
+    }
 
     public User(String email, String password, String fullName, String poblacio) {
         this.poblacio = poblacio;
@@ -22,35 +39,11 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getPoblacio() {
-        return poblacio;
-    }
-
-    public void setPoblacio(String poblacio) {
+    public User(String email, String password, String fullName, String poblacio, long id) {
         this.poblacio = poblacio;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.id = id;
     }
 }
